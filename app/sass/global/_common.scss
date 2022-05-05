@@ -1,0 +1,80 @@
+* {
+  &::before, &::after {
+    box-sizing: border-box;
+  }
+}
+body {
+  font-family: $fontGeorgia;
+
+}
+h1, h2, p, a, span, li {
+  line-height: 1.2;
+}
+a {
+  text-decoration: none;
+}
+.wrapper {
+  position: relative;
+  margin: 0 auto;
+}
+.container {
+  @include wrapper();
+}
+.row {
+  @include row-flex();
+}
+.h1 {
+  color: $colorWhite;
+  font-size: 22px;
+  @media screen and (min-width: $size_md) {
+    font-size: 44px;
+  }
+}
+.subheader {
+  color: $colorBlack;
+  font-size: 18px;
+  &_white {
+    color: $colorWhite;
+  }
+  @media screen and (min-width: $size_md) {
+    font-size: 35px;
+    letter-spacing: 1.8px;
+    line-height: 1.3;
+  }
+}
+.img-responsive {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+.btn {
+  text-decoration: none;
+  border-radius: 26px;
+  font-size: 14px;
+  color: $colorText;
+  padding: 10px 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  @media screen and (min-width: $size_md) {
+    padding: 14px 48px;
+    font-size: 17px;
+  }
+}
+.btn-orange {
+  background-color: $colorPeach;
+  border: 2px solid $colorPeach;
+  transition: all .3s ease-in-out;
+  &:hover, &:focus {
+    background-color: $colorWhite;
+  }
+}
+.btn-white {
+  background-color: $colorWhite;
+  border: 2px solid $colorPeach;
+  transition: all .3s ease-in-out;
+  &:hover, &:focus {
+    background-color: $colorPeach;
+  }
+}
+

@@ -1,0 +1,63 @@
+.card {
+  max-width: 270px;
+  margin: 0 auto;
+  &:hover, &:focus {
+    box-shadow: 0 2px 30.1px 4.9px rgba(13, 13, 13, 0.04);
+  }
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fafafa;
+    border-radius: 9px;
+    padding-bottom: 30px;
+  }
+  &__figure {
+    margin-bottom: 40px;
+  }
+  &__name {
+    margin-bottom: 15px;
+  }
+  &__link {
+    padding: 14px 48px;
+  }
+}
+.splide__arrow--prev svg, .splide__arrow--next svg {
+  display: none;
+}
+.splide__arrow--prev, .splide__arrow--next {
+  background-color: transparent;
+  transition: all .3s ease-in-out;
+  border: 1px solid $colorPeach;
+  width: 50px;
+  height: 50px;
+  display: inline-flex;
+  align-items: center;
+  top: 48%;
+  &:hover, &:focus {
+    background-color: $colorPeach;
+  }
+  &::before {
+    display: inline-flex;
+    font-size: 18px;
+
+  }
+}
+.splide__arrow--prev {
+  @media screen and (min-width: $size_lg) {
+    left: -2em;
+  }
+
+  &::before {
+    content: '\2190';
+  }
+}
+.splide__arrow--next {
+  @media screen and (min-width: $size_lg) {
+    right: -2em;
+  }
+
+  &::before {
+    content: '\2192';
+  }
+}

@@ -1,0 +1,61 @@
+$colorWhite: #fff;
+$colorPeach: #f1cdb3;
+$colorGray: #cdcdcd;
+$colorText: #292929;
+$colorTextSecondary: #4c4c4c;
+$colorBlack: #545454;
+$fontGeorgia: 'Georgia', serif;
+$fontArial: 'Arial', sans-serif;
+
+// sizes
+$size_xs: 559px;
+$size_sm: 768px;
+$size_md: 1024px;
+$size_lg: 1199px;
+
+
+
+@mixin placeholder() {
+  $selector: '';
+  $prefixes: (
+          moz: "::-moz",
+          webkit: "::-webkit",
+          ie: ":-ms",
+          mozNew: ":-moz"
+  );
+  @each $prop, $value in $prefixes {
+    @if $prop != "moz" {
+      $selector: #{$value}-input-placeholder;
+    } @else {
+      $selector: #{$value}-placeholder;
+    }
+    @if & {
+      @if $prop == "moz" {
+        &#{$selector} {
+          @content;
+          opacity: 1;
+        }
+
+      }
+      @else if $prop == "mozNew"{
+        &#{$selector} {
+          @content;
+          opacity: 1;
+        }
+      }
+      @else {
+        &#{$selector} {
+          @content;
+        }
+      }
+
+    } @else {
+      #{$selector} {
+        @content;
+      }
+    }
+  }
+  &::placeholder {
+    @content;
+  }
+}

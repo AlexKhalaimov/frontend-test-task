@@ -1,0 +1,178 @@
+.header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  left: 0;
+  @media screen and (min-width: $size_md){
+    padding-top: 52px;
+  }
+  &__inner {
+    position: relative;
+  }
+  &__logo {
+    @include col();
+    @include size-md(4);
+    @include size-lg(4);
+    &-link {
+      display: flex;
+      flex-direction: column;
+    }
+    &-text {
+      &_top {
+        font-size: 20px;
+        color: $colorPeach;
+        letter-spacing: 2px;
+        @media screen and (min-width: $size_md) {
+          font-size: 32px;
+          padding-bottom: 5px;
+        }
+      }
+      &_btm {
+        font-family: $fontArial;
+        font-size: 10px;
+        color: $colorWhite;
+        letter-spacing: 1.5px;
+        @media screen and (min-width: $size_md) {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+  &__nav {
+    display: flex;
+    padding: 10px 0;
+    position: absolute;
+    top: 40px;
+    left: -100%;
+    width: 100%;
+    background-color: $colorBlack;
+    transition: all .3s ease-in-out;
+    &.is-open {
+      left: 0;
+    }
+    @media screen and (min-width: $size_md) {
+      @include col();
+      @include size-md(8);
+      @include size-lg(8);
+        padding: 18px 0 10px;
+      justify-content: flex-end;
+      background-color: transparent;
+      position: static;
+    }
+    &-list{
+      display: flex;
+      flex-direction: column;
+      @media screen and (min-width: $size_md) {
+        flex-direction: row;
+      }
+    }
+    &-item {
+      &:not(:last-child) {
+        padding: 0 19px;
+      }
+      &:last-child {
+        padding-left: 19px;
+      }
+    }
+    &-link {
+      padding: 5px 0;
+      display: inline-flex;
+      position: relative;
+      font-size: 15px;
+      color: $colorGray;
+
+      &::after {
+        background: none repeat scroll 0 0 transparent;
+        bottom: 0;
+        content: "";
+        display: block;
+        height: 3px;
+        left: 50%;
+        position: absolute;
+        background: $colorPeach;
+        transition: width 0.3s ease 0s, left 0.3s ease 0s;
+        width: 0;
+      }
+      &:hover {
+        color: $colorWhite;
+        &::after {
+          width: 100%;
+          left: 0;
+        }
+      }
+    }
+  }
+}
+.hamburger {
+  padding: 5px;
+  display: inline-block;
+  cursor: pointer;
+  transition-property: opacity, filter;
+  transition-duration: 0.15s;
+  transition-timing-function: linear;
+  font: inherit;
+  color: inherit;
+  text-transform: none;
+  background-color: transparent;
+  border: 0;
+  margin: 0 0 0 auto;
+  overflow: visible;
+  @media screen and (min-width: $size_md){
+    display: none;
+  }
+}
+.hamburger:hover {
+  opacity: 0.7; }
+.hamburger.is-active:hover {
+  opacity: 0.7; }
+.hamburger.is-active .hamburger-inner,
+.hamburger.is-active .hamburger-inner::before,
+.hamburger.is-active .hamburger-inner::after {
+  background-color: $colorPeach; }
+
+.hamburger-box {
+  width: 40px;
+  height: 24px;
+  display: inline-block;
+  position: relative; }
+
+.hamburger-inner {
+  display: block;
+  top: 50%;
+  margin-top: -2px; }
+.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+  width: 40px;
+  height: 4px;
+  background-color: $colorPeach;
+  border-radius: 4px;
+  position: absolute;
+  transition-property: transform;
+  transition-duration: 0.15s;
+  transition-timing-function: ease; }
+.hamburger-inner::before, .hamburger-inner::after {
+  content: "";
+  display: block; }
+.hamburger-inner::before {
+  top: -10px; }
+.hamburger-inner::after {
+  bottom: -10px; }
+.hamburger--squeeze .hamburger-inner {
+  transition-duration: 0.075s;
+  transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19); }
+.hamburger--squeeze .hamburger-inner::before {
+  transition: top 0.075s 0.12s ease, opacity 0.075s ease; }
+.hamburger--squeeze .hamburger-inner::after {
+  transition: bottom 0.075s 0.12s ease, transform 0.075s cubic-bezier(0.55, 0.055, 0.675, 0.19); }
+
+.hamburger--squeeze.is-active .hamburger-inner {
+  transform: rotate(45deg);
+  transition-delay: 0.12s;
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }
+.hamburger--squeeze.is-active .hamburger-inner::before {
+  top: 0;
+  opacity: 0;
+  transition: top 0.075s ease, opacity 0.075s 0.12s ease; }
+.hamburger--squeeze.is-active .hamburger-inner::after {
+  bottom: 0;
+  transform: rotate(-90deg);
+  transition: bottom 0.075s ease, transform 0.075s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1); }

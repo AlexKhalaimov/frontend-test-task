@@ -1,0 +1,102 @@
+.footer {
+  background-image: url("../img/footer-bg.png");
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 35px 0;
+  @media screen and (min-width: $size_md) {
+    padding: 72px 0;
+  }
+  &__col {
+    @include col();
+    @include size(12);
+    @include size-sm(4);
+    //@include size-md(3);
+    &:first-child {
+      margin-bottom: 35px;
+      @media screen and (min-width: $size_sm) {
+        margin-bottom: 0;
+      }
+    }
+    @media screen and (min-width: $size_lg) {
+      &:last-child {
+        padding-left: 54px;
+      }
+    }
+  }
+  &__title {
+    margin-bottom: 15px;
+    @media screen and (min-width: $size_md) {
+      margin-bottom: 35px;
+    }
+  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+
+    &-item {
+      display: inline-flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      margin-bottom: 15px;
+      @media screen and (min-width: $size_lg) {
+        margin-bottom: 0;
+        &:first-of-type {
+          margin-bottom: 35px;
+        }
+      }
+    }
+    &-text {
+      color: $colorPeach;
+      font-size: 14px;
+      @media screen and (min-width: $size_md) {
+        font-size: 22px;
+      }
+    }
+    &-link {
+      color: $colorPeach;
+      font-size: 14px;
+      @media screen and (min-width: $size_md) {
+        font-size: 22px;
+      }
+    }
+    &-icon {
+      display: inline-block;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center left;
+      padding-right: 10px;
+      @media screen and (min-width: $size_md) {
+        padding-right: 25px;
+      }
+    }
+  }
+
+}
+.icon-envelope {
+  width: 22px;
+  height: 15px;
+  background-image: url("../img/icons/envelope.png");
+  @media screen and (min-width: $size_md) {
+    width: 39px;
+    height: 25px;
+  }
+}
+.icon-phone {
+  width: 22px;
+  height: 15px;
+  background-image: url("../img/icons/telephone.png");
+  @media screen and (min-width: $size_md) {
+    width: 35px;
+    height: 30px;
+  }
+}
+.icon-mark {
+  width: 22px;
+  height: 15px;
+  background-image: url("../img/icons/pin.png");
+  @media screen and (min-width: $size_md) {
+    width: 31px;
+    height: 40px;
+  }
+}
